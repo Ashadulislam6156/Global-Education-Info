@@ -34,6 +34,13 @@ p {
   font-weight: bold;
 }
 
+#nav-links {
+  display: none;
+}
+#nav-links.active {
+  display: block;
+}
+
 /* Mobile & Tablet Styles */
 @media (max-width: 768px) {
   .navbar {
@@ -121,7 +128,7 @@ p {
 
 .nav-button {
   display: inline-block;
-  margin-left: 3rem;
+  margin-left: 1rem;
 }
 
 .nav-button button {
