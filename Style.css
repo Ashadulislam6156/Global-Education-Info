@@ -34,15 +34,15 @@ p {
   font-weight: bold;
 }
 
-#nav-links {
-  display: none;
-}
 #nav-links.active {
   display: block;
 }
 
 /* Mobile & Tablet Styles */
 @media (max-width: 768px) {
+  #nav-links {
+  display: none;
+}
   .navbar {
       display: flex;
       justify-content: space-between;
