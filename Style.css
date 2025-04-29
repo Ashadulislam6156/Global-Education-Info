@@ -54,8 +54,8 @@ p {
       z-index: 999;
   }
 
-  .navbar img {
-      width: 60%;
+  .navbar .logo-web{
+      width: 110%;
       height: auto;
   }
 
