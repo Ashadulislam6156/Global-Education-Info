@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page | Global Education Info</title>
+    <link rel="shortcut icon" href="./Images/GEI-Fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Style.css">
+    <script>
+        window.initialRankings = {
+            oxford: "#2 World, #1 UK",
+            harvard: "#3 World, #1 USA",
+            toronto: "#18 World, #1 Canada",
+            melbourne: "#14 World, #1 Australia"
+        };
+    </script>
+</head>
+<body>
+  <div class="navbar">
+    <!-- Logo -->
+    <img src="./Images/Website-log.png" alt="Logo" class="logo-web">
+
+    <!-- Hamburger Icon for Mobile -->
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <!-- Navigation Links -->
+    <div class="nav-right" id="nav-links">
+        <nav>
+            <a href="./index.html" class="Active-page" target="_blank">Home</a>
+            <a href="./Universities-Page.html" target="_blank">Universities</a>
+            <a href="./Scholarships-Page.html" target="_blank">Scholarships</a>
+            <a href="./About-Us.html" target="_blank">About Us</a>
+            <a href="./Sub-Prgramme-Page.html" target="_blank">Subjects</a>
+            <a href="./Contact-page.html" target="_blank">Contact Us</a>
+            <div class="nav-button">
+                <button src="#" target="_blank">Log In</button>
+            </div>
+        </nav>
+    </div>
+</div>
+
+    
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Find Your Dream <span>University</span></h1>
+            <p>Explore top universities, scholarships, and study opportunities worldwide.</p>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search universities, scholarships...">
+                <button onclick="performSearch()">Search</button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+            <div class="nav-button banner-sign-up">
+              <button src="#" target="_blank">Sign Up</button>
+          </div>
+        </div>
+    </div>
+    
+    <!-- <div class="section" id="featured">
+        <h2>Featured Universities & Scholarships</h2>
+
+
+    </div> -->
+
+
+    <section class="featured-section">
+      <h2>🎓 Featured Universities & Scholarships</h2>
+      <p class="subtitle">
+        📌 Below are some trending and popular universities and scholarships – use the "Apply Now" button to apply directly.
+      </p>
+  
+      <div class="card-container">
+        <!-- Oxford -->
+        <div class="card">
+          <div>
+            <div class="img-div">
+              <img src="./Images/oxford.jpeg" alt="Oxford" class="logo" />
+            </div>
+          </div>
+          <h3>University of Oxford</h3>
+          <p class="country">UK</p>
+          <ul>
+            <li><strong>🌐 Rank:</strong> <span class="university-rank" data-university="oxford">Loading...</span></li>
+            <li><strong>💸 Tuition:</strong> £27,840/year</li>
+            <li><strong>📅 Deadline:</strong> October 15, 2024</li>
+            <li><strong>🎯 Scholarships:</strong> 
+              <a href="https://www.chevening.org/scholarships/" target="_blank">Chevening</a>, 
+              <a href="https://www.rhodeshouse.ox.ac.uk/scholarships/" target="_blank">Rhodes</a>
+            </li>
+          </ul>
+          <a href="https://www.ox.ac.uk/admissions/undergraduate/applying-to-oxford" target="_blank" class="apply-btn">Apply Now</a>
+        </div>
+  
+        <!-- Harvard -->
+        <div class="card">
+          <div class="img-div">
+            <img src="./Images/harvard.jpeg" alt="Harvard" class="logo" />
+          </div>
+          <h3>Harvard University</h3>
+          <p class="country">USA</p>
+          <ul>
+            <li><strong>🌐 Rank:</strong> <span class="university-rank" data-university="harvard">Loading...</span></li>
+            <li><strong>💸 Tuition:</strong> $54,269/year</li>
+            <li><strong>📅 Deadline:</strong> January 1, 2025</li>
+            <li><strong>🎯 Scholarships:</strong> 
+              <a href="https://fulbrightscholars.org/" target="_blank">Fulbright</a>, 
+              <a href="https://www.aauw.org/resources/programs/fellowships-grants/" target="_blank">AAUW</a>
+            </li>
+          </ul>
+          <a href="https://college.harvard.edu/admissions/apply" target="_blank" class="apply-btn">Apply Now</a>
+        </div>
+  
+        <!-- Toronto -->
+        <div class="card">
+          <div class="img-div">
+            <img src="./Images/toronto.jpeg" alt="Toronto" class="logo" />
+          </div>
+          <h3>University of Toronto</h3>
+          <p class="country">Canada</p>
+          <ul>
+            <li><strong>🌐 Rank:</strong> <span class="university-rank" data-university="toronto">Loading...</span></li>
+            <li><strong>💸 Tuition:</strong> CAD $58,160/year</li>
+            <li><strong>📅 Deadline:</strong> January 15, 2025</li>
+            <li><strong>🎯 Scholarships:</strong> 
+              <a href="https://future.utoronto.ca/finances/scholarships/lester-b-pearson/" target="_blank">Lester B. Pearson</a>
+            </li>
+          </ul>
+          <a href="https://future.utoronto.ca/apply/" target="_blank" class="apply-btn">Apply Now</a>
+        </div>
+  
+        <!-- Melbourne -->
+        <div class="card">
+          <div class="img-div">
+            <img src="./Images/melborn.jpeg" alt="Melbourne" class="logo" />
+          </div>
+  
+          <h3>University of Melbourne</h3>
+          <p class="country">Australia</p>
+          <ul>
+            <li><strong>🌐 Rank:</strong> <span class="university-rank" data-university="melbourne">Loading...</span></li>
+            <li><strong>💸 Tuition:</strong> AUD $45,000/year</li>
+            <li><strong>📅 Deadline:</strong> October 31, 2024</li>
+            <li><strong>🎯 Scholarships:</strong> 
+              <a href="https://www.dfat.gov.au/people-to-people/australia-awards" target="_blank">Australia Awards</a>, 
+              <a href="https://scholarships.unimelb.edu.au/awards/research-training-program-scholarship" target="_blank">RTP</a>
+            </li>
+          </ul>
+          <a href="https://study.unimelb.edu.au/how-to-apply" target="_blank" class="apply-btn">Apply Now</a>
+        </div>
+      </div>
+  </section>
+  
+
+    
+    <!-- <div class="section" id="how-it-works">
+        <h2>How It Works? (User Guide) 🛠️</h2>
+    </div>
+     -->
+     <section class="how-it-works">
+      <h2>🚀 How It Works</h2>
+      <p class="subtitle">
+        Students can easily use our website in 4 simple steps to find universities and scholarships:
+      </p>
+    
+      <div class="steps">
+          <div class="step">
+              <div class="step-icon">1️⃣</div>
+              <h3>Sign Up & Create Profile</h3>
+              <p>Register easily and create your profile with your educational and personal information.</p>
+          </div>
+      
+          <div class="step">
+              <div class="step-icon">2️⃣</div>
+              <h3>Find Universities & Scholarships</h3>
+              <p>Filter universities and scholarships based on your preferences such as country, subject, or budget.</p>
+          </div>
+      
+          <div class="step">
+              <div class="step-icon">3️⃣</div>
+              <h3>Submit Applications</h3>
+              <p>Apply online for your chosen universities and scholarships from one platform.</p>
+          </div>
+      
+          <div class="step">
+              <div class="step-icon">4️⃣</div>
+              <h3>Track Your Progress & Get Admission</h3>
+              <p>Track the status of your applications, receive notifications via email, and get your offer letter!</p>
+          </div>
+      </div>
+  </section>
+
+
+    <!-- <div class="section" id="ai-consultant">
+        <h2>AI-Powered Study Abroad Consultant</h2>
+    </div>
+     -->
+
+
+     <section class="trusted-section">
+      <div class="section-header">
+        <h2>Trusted Scholarships & Global Education Agencies in Bangladesh</h2>
+        <p>Trusted by hundreds of students – the best partner for international education is now at your fingertips!</p>
+      </div>
+    
+      <div class="agency-grid">
+    
+        <!-- Agency Card -->
+        <div class="agency-card" id="pfec">
+          <img src="./Images/PFEC Logo.png" alt="PFEC Logo">
+          <h3>PFEC Global</h3>
+          <p>Provides counseling and services for higher education in countries like Australia, Canada, the UK, USA, and more.</p>
+          <a href="https://pfecglobal.com.bd/" target="_blank">Visit Website</a>
+        </div>
+    
+        <div class="agency-card" id="eduko">
+          <img src="./Images/Eduko_Logo.png" alt="Eduko Logo">
+          <h3>Eduko Pathways</h3>
+          <p>Offers personalized guidance and tailored solutions for students seeking international education opportunities.</p>
+          <a href="https://edukopathwaysbd.com/" target="_blank">Visit Website</a>
+        </div>
+    
+        <div class="agency-card" id="idp">
+          <img src="./Images/idp-logo.svg" alt="IDP Logo">
+          <h3>IDP Bangladesh</h3>
+          <p>Co-founder of IELTS and official representative of universities in the UK, Canada, Australia, and many other countries.</p>
+          <a href="https://www.idp.com/bangladesh/" target="_blank">Visit Website</a>
+        </div>
+    
+    
+        <div class="agency-card" id="maces">
+          <img src="./Images/MACES-logo.png" alt="MACES Logo">
+          <h3>MACES</h3>
+          <p>Leads in admission services and IELTS coaching for the UK and Europe.</p>
+          <a href="https://macesbd.com/" target="_blank">Visit Website</a>
+        </div>
+    
+    
+      </div>
+    </section>
+    
+    <!-- ai-consultant start -->
+
+
+    <section class="ai-consultant">
+      <div class="container">
+          <div class="text-content">
+              <h2>🤖 AI-Powered Study Abroad Consultant</h2>
+              <p class="subtitle">
+                  📌 Simply provide your GPA, subject, budget, and preferred country – our AI will recommend the best Universities & Scholarships for you!
+              </p>
+  
+              <ul class="features">
+                  <li>🎯 Personalized University & Scholarship Matching</li>
+                  <li>💬 Real-Time Live Chatbot Support</li>
+                  <li>🧠 Smart Filtering by Budget, Subject & Country</li>
+                  <li>🔍 One-Click Recommendation & Instant Apply Option</li>
+              </ul>
+  
+              <a href="#Try-the-AI" class="get-started-btn">Try the AI Consultant Now</a>
+          </div>
+  
+          <div class="ai-image">
+              <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="AI Chatbot Illustration" />
+          </div>
+      </div>
+  </section>
+  
+      
+
+  <section class="ai-form-section" id="Try-the-AI">
+    <div class="form-container">
+        <h2>🎓 Get Your AI-Powered Recommendation</h2>
+        <p>Simply fill out the form below, and the AI will suggest the best universities and scholarships for you!</p>
+
+        <form class="recommendation-form" id="recommendationForm">
+            <div class="form-group">
+                <label for="gpa">Your GPA</label>
+                <input type="text" id="gpa" placeholder="Example: 3.75" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Preferred Subject</label>
+                <input type="text" id="subject" placeholder="Example: Computer Science" required>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Your Budget (USD)</label>
+                <input type="number" id="budget" placeholder="Example: 15000" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Preferred Country</label>
+                <select id="country" required>
+                    <option value="">Select a Country</option>
+                    <option>UK</option>
+                    <option>USA</option>
+                    <option>Canada</option>
+                    <option>Australia</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn" id="Get-btn-Ai">Get Recommendations</button>
+        </form>
+    </div>
+
+    <div class="chatbot-preview">
+        <h3>💬 Live Chatbot Support</h3>
+        <div class="chat-window" id="chatWindow">
+            <div class="bot-msg">Hi there! 👋 Need help choosing your university?</div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Fallback data for when API is not available
+    const fallbackUniversities = [
+        {
+            name: "University of Oxford",
+            country: "UK",
+            ranking: 2,
+            tuition: 27840,
+            programs: ["Computer Science", "Engineering", "Business", "Medicine", "Law"],
+            image_url: "./Images/oxford.jpeg",
+            minGPA: 3.7,
+            scholarships: ["Chevening", "Rhodes", "Clarendon"]
+        },
+        {
+            name: "Harvard University",
+            country: "USA",
+            ranking: 3,
+            tuition: 54269,
+            programs: ["Computer Science", "Engineering", "Business", "Medicine", "Law"],
+            image_url: "./Images/harvard.jpeg",
+            minGPA: 3.8,
+            scholarships: ["Fulbright", "AAUW", "Harvard Financial Aid"]
+        },
+        {
+            name: "University of Toronto",
+            country: "Canada",
+            ranking: 18,
+            tuition: 58160,
+            programs: ["Computer Science", "Engineering", "Business", "Medicine", "Law"],
+            image_url: "./Images/toronto.jpeg",
+            minGPA: 3.5,
+            scholarships: ["Lester B. Pearson", "U of T Scholars"]
+        },
+        {
+            name: "University of Melbourne",
+            country: "Australia",
+            ranking: 14,
+            tuition: 45000,
+            programs: ["Computer Science", "Engineering", "Business", "Medicine", "Law"],
+            image_url: "./Images/melborn.jpeg",
+            minGPA: 3.6,
+            scholarships: ["Australia Awards", "RTP", "Melbourne Scholarships"]
+        }
+    ];
+
+    // Event listener for form submission
+    document.getElementById('recommendationForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Get user inputs
+        let gpa = parseFloat(document.getElementById('gpa').value);
+        let subject = document.getElementById('subject').value.toLowerCase();
+        let budget = parseFloat(document.getElementById('budget').value);
+        let country = document.getElementById('country').value;
+
+        // Get chat window
+        let chatWindow = document.getElementById('chatWindow');
+
+        // Add user message to chat window
+        chatWindow.innerHTML += `<div class="user-msg">I have a ${gpa} GPA and want to study ${subject} in ${country} with a budget of $${budget}.</div>`;
+
+        try {
+            // Try to fetch from API first
+            let universities;
+            try {
+                const apiResponse = await fetch('http://localhost:5000/api/universities', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (!apiResponse.ok) {
+                    throw new Error(`HTTP error! status: ${apiResponse.status}`);
+                }
+                
+                universities = await apiResponse.json();
+            } catch (apiError) {
+                console.log('Using fallback data due to API error:', apiError);
+                universities = fallbackUniversities;
+            }
+
+            // Convert budget to USD for comparison
+            let budgetUSD = budget;
+            if (country === 'UK') budgetUSD = budget * 1.3;
+            else if (country === 'Canada') budgetUSD = budget * 0.75;
+            else if (country === 'Australia') budgetUSD = budget * 0.65;
+
+            // Filter universities based on user criteria
+            let recommendations = universities.filter(uni => {
+                // Convert tuition to USD for comparison
+                let tuitionUSD = uni.country === 'UK' ? uni.tuition * 1.3 :
+                                uni.country === 'Canada' ? uni.tuition * 0.75 :
+                                uni.country === 'Australia' ? uni.tuition * 0.65 :
+                                uni.tuition;
+
+                // Check if university matches criteria
+                return uni.country === country && 
+                       tuitionUSD <= budgetUSD && 
+                       gpa >= uni.minGPA &&
+                       uni.programs.some(prog => prog.toLowerCase().includes(subject));
+            });
+
+            // Sort by ranking
+            recommendations.sort((a, b) => a.ranking - b.ranking);
+
+            // Generate personalized response
+            let recommendationText = '';
+            if (recommendations.length > 0) {
+                recommendationText = `Based on your profile, here are some great options for you:\n\n`;
+                recommendations.slice(0, 3).forEach(uni => {
+                    recommendationText += `🏫 ${uni.name}\n`;
+                    recommendationText += `📊 World Ranking: #${uni.ranking}\n`;
+                    recommendationText += `💰 Tuition: ${uni.tuition} ${uni.country === 'UK' ? 'GBP' : 
+                                                          uni.country === 'Canada' ? 'CAD' : 
+                                                          uni.country === 'Australia' ? 'AUD' : 'USD'}/year\n`;
+                    recommendationText += `🎯 Available Programs: ${uni.programs.join(', ')}\n`;
+                    recommendationText += `🎓 Minimum GPA: ${uni.minGPA}\n`;
+                    recommendationText += `💫 Scholarships: ${uni.scholarships.join(', ')}\n\n`;
+                });
+
+                // Add scholarship recommendations
+                recommendationText += `\n💡 Scholarship Opportunities:\n`;
+                if (gpa >= 3.5) {
+                    recommendationText += `- You're eligible for merit-based scholarships!\n`;
+                }
+                if (budgetUSD < 30000) {
+                    recommendationText += `- Consider applying for need-based financial aid\n`;
+                }
+                recommendationText += `- Check our Scholarships page for more opportunities\n\n`;
+
+                // Add application advice
+                recommendationText += `📝 Application Tips:\n`;
+                recommendationText += `- Start your application early\n`;
+                recommendationText += `- Prepare strong recommendation letters\n`;
+                recommendationText += `- Write a compelling personal statement\n`;
+            } else {
+                recommendationText = `I couldn't find exact matches for your criteria. Here are some suggestions:\n\n`;
+                
+                // Check which criteria didn't match
+                const countryUnis = universities.filter(uni => uni.country === country);
+                const budgetUnis = countryUnis.filter(uni => {
+                    let tuitionUSD = uni.country === 'UK' ? uni.tuition * 1.3 :
+                                   uni.country === 'Canada' ? uni.tuition * 0.75 :
+                                   uni.country === 'Australia' ? uni.tuition * 0.65 :
+                                   uni.tuition;
+                    return tuitionUSD <= budgetUSD;
+                });
+                const gpaUnis = countryUnis.filter(uni => gpa >= uni.minGPA);
+                const subjectUnis = countryUnis.filter(uni => 
+                    uni.programs.some(prog => prog.toLowerCase().includes(subject))
+                );
+
+                if (budgetUnis.length === 0) {
+                    recommendationText += `1. Your budget might be too low. Consider:\n`;
+                    recommendationText += `   - Increasing your budget to at least ${country === 'UK' ? '£25,000' : 
+                                                                    country === 'Canada' ? 'CAD 50,000' : 
+                                                                    country === 'Australia' ? 'AUD 40,000' : 
+                                                                    '$40,000'}\n`;
+                    recommendationText += `   - Looking for scholarships and financial aid\n`;
+                }
+                if (gpaUnis.length === 0) {
+                    recommendationText += `2. Your GPA might be too low. Most universities require at least 3.5 GPA\n`;
+                }
+                if (subjectUnis.length === 0) {
+                    recommendationText += `3. Try searching for similar subjects or check other programs\n`;
+                }
+                
+                recommendationText += `\n💡 Alternative Options:\n`;
+                recommendationText += `- Consider universities in other countries\n`;
+                recommendationText += `- Look for universities with lower entry requirements\n`;
+                recommendationText += `- Explore foundation or pathway programs\n`;
+            }
+
+            // Add the AI response to the chat window
+            chatWindow.innerHTML += `<div class="bot-msg">${recommendationText}</div>`;
+
+            // Scroll to bottom
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+            // Save user input to localStorage
+            localStorage.setItem('userGPA', gpa);
+            localStorage.setItem('userSubject', subject);
+            localStorage.setItem('userBudget', budget);
+            localStorage.setItem('userCountry', country);
+
+        } catch (error) {
+            console.error('Error:', error);
+            chatWindow.innerHTML += `<div class="bot-msg">I'm showing you some general recommendations based on your criteria. For more detailed information, please visit our Universities page.</div>`;
+            
+            // Show fallback recommendations
+            let fallbackText = `Here are some top universities in ${country}:\n\n`;
+            fallbackUniversities
+                .filter(uni => uni.country === country)
+                .forEach(uni => {
+                    fallbackText += `🏫 ${uni.name}\n`;
+                    fallbackText += `📊 World Ranking: #${uni.ranking}\n`;
+                    fallbackText += `💰 Tuition: ${uni.tuition} ${uni.country === 'UK' ? 'GBP' : 
+                                                          uni.country === 'Canada' ? 'CAD' : 
+                                                          uni.country === 'Australia' ? 'AUD' : 'USD'}/year\n`;
+                    fallbackText += `🎓 Minimum GPA: ${uni.minGPA}\n\n`;
+                });
+            
+            chatWindow.innerHTML += `<div class="bot-msg">${fallbackText}</div>`;
+        }
+    });
+
+    // Add real-time chat functionality
+    let chatHistory = [];
+    
+    // Add FAQ answers object
+    const faqAnswers = {
+      "which scholarships can i apply for": "You can apply for various scholarships based on your GPA, country, and subject. Visit our Scholarships page for details.",
+      "how do i write an sop": "To write an SOP, start by describing your academic background, career goals, and why you chose the course/university. Be honest and specific.",
+      "what documents are required for a student visa": "You generally need your passport, university admission letter, bank statement, SOP, and other supporting documents for a student visa.",
+      "hello": "Hello! How can I assist you today?",
+      "hi": "Hi there! How can I help you with your study abroad journey?",
+      "thank you": "You're welcome! If you have more questions, feel free to ask.",
+      "gpa 3.9": "With a GPA of 3.9, you're eligible for most top universities and merit-based scholarships. You can apply to prestigious institutions like Oxford, Cambridge, and other Russell Group universities.",
+      "uk universities": "Top UK universities include Oxford, Cambridge, LSE, UCL, and Imperial College London. Most require a minimum GPA of 3.5-3.7 for Master's programs. Application deadlines are typically between October and January.",
+      "law program": "For Law programs in the UK, you'll need a strong academic background. Top law schools include Oxford, Cambridge, LSE, and UCL. Most require a minimum GPA of 3.7 and a good score in the LNAT (National Admissions Test for Law).",
+      "master's degree": "For Master's programs in the UK, you'll need a Bachelor's degree with a minimum GPA of 3.5-3.7. Top universities offer various Master's programs in Law, with durations of 1-2 years. Scholarships like Chevening and Commonwealth are available for international students.",
+      "uk law master's": "For a Master's in Law in the UK, you can consider programs like LLM at Oxford, Cambridge, LSE, or UCL. With your GPA of 3.9, you're competitive for these programs. Most require IELTS 7.0+ and a strong personal statement.",
+      "scholarship gpa 3.9": "With a GPA of 3.9, you're eligible for prestigious scholarships like Chevening, Commonwealth, and university-specific merit scholarships. These can cover full or partial tuition fees for your Master's program.",
+      "uk law requirements": "For UK Law programs, you'll need: 1) Bachelor's degree with GPA 3.7+, 2) IELTS 7.0+ (or equivalent), 3) LNAT score (for some universities), 4) Strong personal statement, 5) Academic references, and 6) Relevant work experience (preferred)."
+    };
+
+    function getLocalFAQAnswer(message) {
+      const text = message.toLowerCase();
+      for (const key in faqAnswers) {
+        if (text.includes(key)) return faqAnswers[key];
+      }
+      return "I couldn't find an answer to your question. Please visit our FAQ or ask something else!";
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chat-input');
+      const message = input.value.trim();
+      if (!message) return;
+      const chatBox = document.getElementById('chat-box');
+      // User message
+      chatBox.innerHTML += `<p class="user-message">${message}</p>`;
+      input.value = '';
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Typing indicator
+      const typingId = 'typing-indicator';
+      chatBox.innerHTML += `<div id="${typingId}" class="typing-indicator">Bot is typing...</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Try API first, fallback to local FAQ
+      fetch('http://localhost:5000/api/hybrid-chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById(typingId).remove();
+        chatBox.innerHTML += `<p class="support-message">${data.reply}</p>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      })
+      .catch(() => {
+        document.getElementById(typingId).remove();
+        // Use local FAQ when API fails
+        const localAnswer = getLocalFAQAnswer(message);
+        chatBox.innerHTML += `<p class="support-message">${localAnswer}</p>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      });
+    }
+
+    // Enter key support
+    document.getElementById('chat-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') sendMessage();
+    });
+</script>
+
+
+
+    <!-- <div class="section" id="success-stories">
+        <h2>Success Stories & Testimonials</h2>
+    </div> -->
+
+    <section class="testimonials-section">
+      <h2>🏆 Success Stories & Testimonials</h2>
+      <p class="subtitle">
+        Hear from our successful students – how they received scholarships and what their international study experience was like!
+      </p>
+    
+      <div class="testimonial-grid">
+    
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="video-wrapper">
+            <!-- <iframe src="https://youtu.be/2R3YxXCS6Rw?si=TF6qF0dOo6UoDcRF" allowfullscreen></iframe> -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/2R3YxXCS6Rw?si=IBed6vPoh7jQEv-r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="testimonial-text">
+            <h3>Mehzabien | 🇨🇦 Canada</h3>
+            <p>"I got a full scholarship in Canada with only a 3.8 GPA! This platform made it possible."</p>
+          </div>
+        </div>
+    
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="video-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BRw3oDvlBlM?si=KzZgQcDzYbi5_aeA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="testimonial-text">
+            <h3>Suraiya Ahmed Ratri | 🇦🇺 Australia</h3>
+            <p>"Through the AI Recommendation, I discovered 3 scholarship options. Now I'm studying in Sydney!"</p>
+          </div>
+        </div>
+
+                <!-- Testimonial 3 (Text-only) -->
+
+
+        <div class="testimonial-card">
+          <div class="video-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/K4sOo7S7GaA?si=2DpGDfqLpObWoUo7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="testimonial-text">
+            <h3>Shapla | 🇬🇧 UK</h3>
+            <p>"The budget was low, so it was difficult to find scholarships. I got a fully funded offer from here. Highly recommended!"</p>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
+    <!-- <div class="section" id="study-guide">
+        <h2>Study Destination Guide</h2>
+    </div> -->
+
+    <section class="destination-guide">
+      <h2>🌍 Study Destination Guide</h2>
+      <p class="subtitle">
+        Learn about top study destinations and make informed decisions!
+      </p>
+    
+      <div class="country-cards">
+        <!-- USA -->
+        <div class="country-card" data-country="USA">
+          <h3>🇺🇸 USA</h3>
+          <ul>
+            <li><strong>Visa:</strong> F-1 Student Visa</li>
+            <li><strong>Tuition Fees:</strong> $10,000 - $40,000/year</li>
+            <li><strong>Living Cost:</strong> $800 - $1,500/month</li>
+            <li><strong>Part-time Jobs:</strong> 20 hrs/week on-campus</li>
+          </ul>
+        </div>
+    
+        <!-- UK -->
+        <div class="country-card" data-country="UK">
+          <h3>🇬🇧 UK</h3>
+          <ul>
+            <li><strong>Visa:</strong> Student Route Visa</li>
+            <li><strong>Tuition Fees:</strong> £10,000 - £20,000/year</li>
+            <li><strong>Living Cost:</strong> £800 - £1,200/month</li>
+            <li><strong>Part-time Jobs:</strong> 20 hrs/week</li>
+          </ul>
+        </div>
+    
+        <!-- Canada -->
+        <div class="country-card" data-country="Canada">
+          <h3>🇨🇦 Canada</h3>
+          <ul>
+            <li><strong>Visa:</strong> Study Permit</li>
+            <li><strong>Tuition Fees:</strong> CA$12,000 - CA$25,000/year</li>
+            <li><strong>Living Cost:</strong> CA$700 - CA$1,200/month</li>
+            <li><strong>Part-time Jobs:</strong> 20 hrs/week</li>
+          </ul>
+        </div>
+    
+        <!-- Australia -->
+        <div class="country-card" data-country="Australia">
+          <h3>🇦🇺 Australia</h3>
+          <ul>
+            <li><strong>Visa:</strong> Subclass 500</li>
+            <li><strong>Tuition Fees:</strong> AU$15,000 - AU$30,000/year</li>
+            <li><strong>Living Cost:</strong> AU$1,000 - AU$1,400/month</li>
+            <li><strong>Part-time Jobs:</strong> 48 hrs/fortnight</li>
+          </ul>
+        </div>
+    
+        <!-- Germany -->
+        <div class="country-card" data-country="Germany">
+          <h3>🇩🇪 Germany</h3>
+          <ul>
+            <li><strong>Visa:</strong> Student Visa (D-type)</li>
+            <li><strong>Tuition Fees:</strong> Mostly Free</li>
+            <li><strong>Living Cost:</strong> €700 - €1,000/month</li>
+            <li><strong>Part-time Jobs:</strong> 120 full / 240 half days/year</li>
+          </ul>
+        </div>
+      </div>
+    
+      <!-- Compare Button -->
+      <div class="compare-button-wrapper">
+        <button class="compare-button" id="compareBtn">🔍 Compare Countries</button>
+      </div>
+    
+      <!-- Modal -->
+      <div id="compareModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeModalBtn">&times;</span>
+          <h3>🔎 Compare Countries</h3>
+          <div class="compare-form">
+            <select id="country1" class="country-select">
+              <option value="USA">🇺🇸 USA</option>
+              <option value="UK">🇬🇧 UK</option>
+              <option value="Canada">🇨🇦 Canada</option>
+              <option value="Australia">🇦🇺 Australia</option>
+              <option value="Germany">🇩🇪 Germany</option>
+            </select>
+            <select id="country2" class="country-select">
+              <option value="UK">🇬🇧 UK</option>
+              <option value="USA">🇺🇸 USA</option>
+              <option value="Canada">🇨🇦 Canada</option>
+              <option value="Australia">🇦🇺 Australia</option>
+              <option value="Germany">🇩🇪 Germany</option>
+            </select>
+            <button class="compare-btn" id="showComparison">Compare</button>
+          </div>
+    
+          <!-- Comparison Table -->
+          <div id="comparisonTable" class="comparison-table">
+            <!-- Table content will be populated here dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  
+    <!-- <div class="section" id="news-updates">
+        <h2>Latest Education News & Updates</h2>
+    </div> -->
+
+    <section class="education-news">
+      <h2>📰 Latest Education News & Updates</h2>
+      <p class="subtitle">Stay updated with the latest news about scholarships, visas, and international education regulations!</p>
+
+      <div class="news-cards">
+        <!-- Scholarship Announcement -->
+        <div class="news-card">
+          <h3>🎓 New Scholarship Announced</h3>
+          <p class="date">April 5, 2025</p>
+          <p>New scholarship opportunities are now available for international students. Apply before the deadline and secure your future in top universities!</p>
+          <a href="https://bold.org/scholarships/by-type/international-students-scholarships/?utm_source=chatgpt.com" target="_blank" class="read-more">Read More</a>
+        </div>
+
+        <!-- Visa & Application Process Update -->
+        <div class="news-card">
+          <h3>🛂 Visa Application Process Update</h3>
+          <p class="date">April 3, 2025</p>
+          <p>The visa application process has changed for students planning to study in the USA. Check out the latest requirements and apply today!</p>
+          <a href="https://www.youtube.com/watch?v=gJpfp61uUdc&utm_source=chatgpt.com" target="_blank" class="read-more">Read More</a>
+        </div>
+
+        <!-- New Law in International Education -->
+        <div class="news-card">
+          <h3>⚖️ New Education Laws</h3>
+          <p class="date">April 1, 2025</p>
+          <p>New regulations are being implemented for international students in the UK. Learn more about how these laws affect your student visa and application process.</p>
+          <a href="https://immigrationbarrister.co.uk/uk-immigration-rules-key-changes-in-april-2025-explained/?utm_source=chatgpt.com" target="_blank" class="read-more">Read More</a>
+        </div>
+      </div>
+    </section>
+    
+      
+    
+    <!-- <div class="section" id="study-materials">
+        <h2>Study Materials & Preparation</h2>
+    </div> -->
+
+    <section class="study-materials">
+      <h2>📚 Study Materials & Preparation</h2>
+      <p class="subtitle">Find guides, practice materials, sample essays, SOP templates, CV formats, and course lists for IELTS, TOEFL, GRE, GMAT, SAT, and more!</p>
+    
+      <div class="resources">
+        <!-- Free Resources -->
+        <div class="resource-card">
+          <h3>📘 Free Study Resources</h3>
+          <ul>
+            <li><a href="https://www.ielts.org/for-test-takers/how-to-prepare" target="_blank">IELTS Preparation Guide</a></li>
+            <li><a href="https://www.ets.org/toefl/test-takers/ibt/prepare.html" target="_blank">TOEFL Study Material</a></li>
+            <li><a href="https://www.ets.org/gre/test-takers/general-test/prepare.html" target="_blank">GRE Practice Tests</a></li>
+            <li><a href="https://www.mba.com/exams/gmat/prepare-for-the-gmat-exam" target="_blank">GMAT Free Resources</a></li>
+            <li><a href="https://collegereadiness.collegeboard.org/sat" target="_blank">SAT Study Guide</a></li>
+            <li><a href="https://www.prospects.ac.uk/postgraduate-study/personal-statements/how-to-write-a-personal-statement-for-universities" target="_blank">SOP Writing Guide</a></li>
+          </ul>
+        </div>
+    
+        <!-- Sample Essays & Templates -->
+        <div class="resource-card">
+          <h3>📝 Sample Essays & Templates</h3>
+          <ul>
+            <li><a href="https://www.ieltsbuddy.com/ielts-sample-essays.html" target="_blank">IELTS Sample Essays</a></li>
+            <li><a href="https://www.ets.org/gre/test-takers/general-test/prepare/analytical-writing.html" target="_blank">GRE Essay Writing Samples</a></li>
+            <li><a href="https://www.sopconsultants.com/sample-sop/" target="_blank">SOP Templates</a></li>
+            <li><a href="https://zety.com/resume-templates" target="_blank">CV & Resume Formats</a></li>
+          </ul>
+        </div>
+    
+        <!-- Free & Paid Courses -->
+        <div class="resource-card">
+          <h3>🎓 Free & Paid Courses</h3>
+          <ul>
+            <li><a href="https://www.udemy.com/course/mastering-ielts-writing-task-2/" target="_blank">Free IELTS Online Course</a></li>
+            <li><a href="https://www.edx.org/learn/toefl" target="_blank">Free TOEFL Preparation Course</a></li>
+            <li><a href="https://www.magoosh.com/gre/" target="_blank">Paid GRE Coaching Course</a></li>
+            <li><a href="https://www.princetonreview.com/business/gmat-test-prep" target="_blank">GMAT Online Classes</a></li>
+            <li><a href="https://www.khanacademy.org/test-prep/sat" target="_blank">SAT Preparation Classes</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- <div class="section" id="faq">
+        <h2>Frequently Asked Questions (FAQ) ❓</h2>
+    </div> -->
+
+    <section class="faq-section">
+      <h2>❓ Frequently Asked Questions (FAQ)</h2>
+<p class="subtitle">Here you will find answers to common questions from students.</p>
+
+<div class="faq">
+  <div class="faq-item">
+    <h3>Q1: Which scholarships can I apply for?</h3>
+    <p>A1: You can apply for various scholarships based on your GPA, country, and subject. Visit our Scholarships page for details.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Q2: How do I write an SOP?</h3>
+    <p>A2: To write an SOP, start by describing your academic background, career goals, and why you chose the course/university. Be honest and specific.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Q3: What documents are required for a student visa?</h3>
+    <p>A3: You generally need your passport, university admission letter, bank statement, SOP, and other supporting documents for a student visa.</p>
+  </div>
+</div>
+
+    
+      <div class="chat-btn">
+        <button onclick="openChat()">Live Chat / Help Center</button>
+      </div>
+    
+      <!-- Live Chat Modal -->
+      <div id="chatModal" class="chat-modal">
+        <div class="chat-modal-content">
+          <div class="chat-header">
+            <h3>💬 Live Chat</h3>
+            <button class="close-btn" onclick="closeChat()">✖</button>
+          </div>
+    
+          <div id="chat-box" class="chat-box"></div>
+          <div class="quick-faq">
+            <button onclick="sendQuickFAQ('Which scholarships can I apply for?')">Scholarships</button>
+            <button onclick="sendQuickFAQ('How do I write an SOP?')">SOP</button>
+            <button onclick="sendQuickFAQ('What documents are required for a student visa?')">Visa Docs</button>
+          </div>
+          <div class="chat-input-area">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Type your message...">
+            <button class="send-btn" onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+
+    
+    <!-- <div class="section" id="newsletter">
+        <h2>Newsletter Subscription & Social Media Links</h2>
+    </div> -->
+
+
+    <section class="newsletter-section">
+      <h2>📩 Newsletter Subscription</h2>
+      <p class="subtitle">Subscribe to get the latest updates on scholarships and admissions!</p>
+    
+      <!-- Newsletter Subscription Form -->
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address" id="email" />
+        <button onclick="subscribe()">Subscribe</button>
+      </div>
+    
+      <p class="social-media">Follow us on social media:</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank"><img src="./Images/facebook-brands (1).svg" alt="Facebook" /></a>
+        <a href="https://www.linkedin.com" target="_blank"><img src="./Images/linkedin-brands.svg" alt="LinkedIn" /></a>
+        <a href="https://www.youtube.com" target="_blank"><img src="./Images/youtube-brands.svg" alt="YouTube" /></a>
+        <a href="https://www.telegram.com" target="_blank"><img src="./Images/telegram-brands.svg" alt="Telegram" /></a>
+      </div>
+    </section>
+    
+    
+    <!-- <div class="section" id="cta">
+        <h2>Get Started Now!</h2>
+        <button>Apply Now</button>
+    </div> -->
+
+
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="./About Us.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-of-service.html">Terms of Service</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Email: globaleducationinfo6156@gmail.com</p>
+            <p>Phone: +1 234 567 890</p>
+            <p>Address: 1230 Uttara, Dhaka, Bangladesh</p>
+          </div>
+      
+          <div class="footer-social">
+            <h3>Follow Us</h3>
+            <a href="https://www.facebook.com" target="_blank"><img src="./Images/facebook-brands (1).svg" alt="Facebook" /></a>
+            <a href="https://www.linkedin.com" target="_blank"><img src="./Images/linkedin-brands.svg" alt="LinkedIn" /></a>
+            <a href="https://www.youtube.com" target="_blank"><img src="./Images/youtube-brands.svg" alt="YouTube" class="youtub"/></a>
+            <a href="https://www.telegram.com" target="_blank"><img src="./Images/telegram-brands.svg" alt="Telegram" /></a>
+          </div>
+        </div>
+      
+        <div class="footer-bottom">
+          <p>&copy; 2025 Global Education Info. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+      <!-- API connection -->
+
+  <script>
+    async function loadUniversities() {
+    try {
+        const response = await fetch('http://localhost:5000/api/universities');
+        const universities = await response.json();
+        
+        const universitiesContainer = document.getElementById('universities-container');
+        universitiesContainer.innerHTML = '';
+        
+        universities.forEach(university => {
+            const universityCard = `
+                <div class="university-card">
+                    <img src="${university.image_url}" alt="${university.name}">
+                    <h3>${university.name}</h3>
+                    <p>${university.country}</p>
+                    <p>Ranking: ${university.ranking}</p>
+                    <p>${university.description}</p>
+                    <a href="${university.website}" target="_blank">Visit Website</a>
+                </div>
+            `;
+            universitiesContainer.innerHTML += universityCard;
+        });
+    } catch (error) {
+        console.error('Error loading universities:', error);
+    }
+}
+</script>
+      
+
+
+    <script src="./Style-JavaScript.js"></script>
+    <script src="./Scholarship.js"></script>
+    <script>
+    async function loadUniversityRankings() {
+        try {
+            const response = await fetch('http://localhost:5000/api/universities');
+            const universities = await response.json();
+            
+            // Sort universities by ranking
+            universities.sort((a, b) => a.ranking - b.ranking);
+            
+            // Update rankings in the featured section
+            const featuredUniversities = {
+                'oxford': 'University of Oxford',
+                'harvard': 'Harvard University',
+                'toronto': 'University of Toronto',
+                'melbourne': 'University of Melbourne'
+            };
+            
+            for (const [key, name] of Object.entries(featuredUniversities)) {
+                const university = universities.find(u => u.name === name);
+                if (university) {
+                    const rankElement = document.querySelector(`.university-rank[data-university="${key}"]`);
+                    if (rankElement) {
+                        rankElement.textContent = `#${university.ranking} World`;
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Error loading university rankings:', error);
+            // Fallback to initial rankings if API fails
+            const initialRankings = {
+                oxford: "#2 World, #1 UK",
+                harvard: "#3 World, #1 USA",
+                toronto: "#18 World, #1 Canada",
+                melbourne: "#14 World, #1 Australia"
+            };
+            
+            for (const [key, rank] of Object.entries(initialRankings)) {
+                const rankElement = document.querySelector(`.university-rank[data-university="${key}"]`);
+                if (rankElement) {
+                    rankElement.textContent = rank;
+                }
+            }
+        }
+    }
+
+    // Load rankings when page loads
+    document.addEventListener('DOMContentLoaded', loadUniversityRankings);
+    </script>
+
+    <script>
+    // Study destination data
+    const studyDestinations = {
+        'USA': {
+            visa: 'F-1 Student Visa',
+            tuition: {
+                min: 10000,
+                max: 40000,
+                currency: 'USD'
+            },
+            livingCost: {
+                min: 800,
+                max: 1500,
+                currency: 'USD',
+                period: 'month'
+            },
+            partTime: '20 hrs/week on-campus',
+            requirements: [
+                'Valid passport',
+                'SEVIS fee payment',
+                'Financial proof',
+                'English proficiency (TOEFL/IELTS)',
+                'Academic transcripts'
+            ],
+            benefits: [
+                'World-class education',
+                'Research opportunities',
+                'Internship options',
+                'Post-study work options'
+            ]
+        },
+        'UK': {
+            visa: 'Student Route Visa',
+            tuition: {
+                min: 10000,
+                max: 20000,
+                currency: 'GBP'
+            },
+            livingCost: {
+                min: 800,
+                max: 1200,
+                currency: 'GBP',
+                period: 'month'
+            },
+            partTime: '20 hrs/week',
+            requirements: [
+                'Valid passport',
+                'CAS letter',
+                'Financial proof',
+                'English proficiency (IELTS)',
+                'Academic transcripts'
+            ],
+            benefits: [
+                'Shorter degree duration',
+                'Work during studies',
+                'Post-study work visa',
+                'Healthcare coverage'
+            ]
+        },
+        'Canada': {
+            visa: 'Study Permit',
+            tuition: {
+                min: 12000,
+                max: 25000,
+                currency: 'CAD'
+            },
+            livingCost: {
+                min: 700,
+                max: 1200,
+                currency: 'CAD',
+                period: 'month'
+            },
+            partTime: '20 hrs/week',
+            requirements: [
+                'Valid passport',
+                'Letter of acceptance',
+                'Financial proof',
+                'English proficiency (IELTS)',
+                'Academic transcripts'
+            ],
+            benefits: [
+                'Affordable education',
+                'Work opportunities',
+                'Path to permanent residency',
+                'Healthcare coverage'
+            ]
+        },
+        'Australia': {
+            visa: 'Subclass 500',
+            tuition: {
+                min: 15000,
+                max: 30000,
+                currency: 'AUD'
+            },
+            livingCost: {
+                min: 1000,
+                max: 1400,
+                currency: 'AUD',
+                period: 'month'
+            },
+            partTime: '48 hrs/fortnight',
+            requirements: [
+                'Valid passport',
+                'COE letter',
+                'Financial proof',
+                'English proficiency (IELTS)',
+                'Academic transcripts'
+            ],
+            benefits: [
+                'High quality education',
+                'Work rights',
+                'Post-study work visa',
+                'Healthcare coverage'
+            ]
+        },
+        'Germany': {
+            visa: 'Student Visa (D-type)',
+            tuition: {
+                min: 0,
+                max: 500,
+                currency: 'EUR'
+            },
+            livingCost: {
+                min: 700,
+                max: 1000,
+                currency: 'EUR',
+                period: 'month'
+            },
+            partTime: '120 full / 240 half days/year',
+            requirements: [
+                'Valid passport',
+                'University admission',
+                'Financial proof',
+                'German language proficiency',
+                'Academic transcripts'
+            ],
+            benefits: [
+                'Free/low tuition',
+                'Work opportunities',
+                'Post-study work options',
+                'Healthcare coverage'
+            ]
+        }
+    };
+
+    // Function to update country cards
+    function updateCountryCards() {
+        const countryCards = document.querySelectorAll('.country-card');
+        
+        countryCards.forEach(card => {
+            const country = card.getAttribute('data-country');
+            const data = studyDestinations[country];
+            
+            if (data) {
+                // Update basic info
+                const ul = card.querySelector('ul');
+                ul.innerHTML = `
+                    <li><strong>Visa:</strong> ${data.visa}</li>
+                    <li><strong>Tuition Fees:</strong> ${data.tuition.min.toLocaleString()} - ${data.tuition.max.toLocaleString()} ${data.tuition.currency}/year</li>
+                    <li><strong>Living Cost:</strong> ${data.livingCost.min.toLocaleString()} - ${data.livingCost.max.toLocaleString()} ${data.livingCost.currency}/${data.livingCost.period}</li>
+                    <li><strong>Part-time Work:</strong> ${data.partTime}</li>
+                `;
+
+                // Add requirements and benefits
+                const requirementsDiv = document.createElement('div');
+                requirementsDiv.className = 'requirements';
+                requirementsDiv.innerHTML = `
+                    <h4>Requirements:</h4>
+                    <ul>
+                        ${data.requirements.map(req => `<li>${req}</li>`).join('')}
+                    </ul>
+                `;
+
+                const benefitsDiv = document.createElement('div');
+                benefitsDiv.className = 'benefits';
+                benefitsDiv.innerHTML = `
+                    <h4>Benefits:</h4>
+                    <ul>
+                        ${data.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                    </ul>
+                `;
+
+                // Add to card
+                card.appendChild(requirementsDiv);
+                card.appendChild(benefitsDiv);
+            }
+        });
+    }
+
+    // Update comparison table
+    function updateComparisonTable() {
+        const table = document.getElementById('comparisonTable');
+        if (!table) return;
+
+        const countries = Object.keys(studyDestinations);
+        let html = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        ${countries.map(country => `<th>${country}</th>`).join('')}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Visa Type</td>
+                        ${countries.map(country => `<td>${studyDestinations[country].visa}</td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td>Tuition Fees (per year)</td>
+                        ${countries.map(country => {
+                            const t = studyDestinations[country].tuition;
+                            return `<td>${t.min.toLocaleString()} - ${t.max.toLocaleString()} ${t.currency}</td>`;
+                        }).join('')}
+                    </tr>
+                    <tr>
+                        <td>Living Cost (per month)</td>
+                        ${countries.map(country => {
+                            const l = studyDestinations[country].livingCost;
+                            return `<td>${l.min.toLocaleString()} - ${l.max.toLocaleString()} ${l.currency}</td>`;
+                        }).join('')}
+                    </tr>
+                    <tr>
+                        <td>Part-time Work</td>
+                        ${countries.map(country => `<td>${studyDestinations[country].partTime}</td>`).join('')}
+                    </tr>
+                </tbody>
+            </table>
+        `;
+        table.innerHTML = html;
+    }
+
+    // Add debug logs and fix comparison functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Page loaded, initializing comparison features...');
+        
+        // Update country cards
+        updateCountryCards();
+        console.log('Country cards updated');
+
+        // Update comparison table
+        updateComparisonTable();
+        console.log('Comparison table updated');
+
+        // Add event listener for compare button
+        const compareBtn = document.getElementById('compareBtn');
+        if (compareBtn) {
+            console.log('Compare button found');
+            compareBtn.addEventListener('click', function() {
+                console.log('Compare button clicked');
+                const modal = document.getElementById('compareModal');
+                if (modal) {
+                    modal.style.display = 'block';
+                    console.log('Modal displayed');
+                } else {
+                    console.error('Modal element not found');
+                }
+            });
+        } else {
+            console.error('Compare button not found');
+        }
+
+        // Add event listener for close button
+        const closeBtn = document.getElementById('closeModalBtn');
+        if (closeBtn) {
+            console.log('Close button found');
+            closeBtn.addEventListener('click', function() {
+                console.log('Close button clicked');
+                const modal = document.getElementById('compareModal');
+                if (modal) {
+                    modal.style.display = 'none';
+                    console.log('Modal closed');
+                }
+            });
+        } else {
+            console.error('Close button not found');
+        }
+
+        // Add event listener for show comparison button
+        const showComparisonBtn = document.getElementById('showComparison');
+        if (showComparisonBtn) {
+            console.log('Show comparison button found');
+            showComparisonBtn.addEventListener('click', function() {
+                console.log('Show comparison button clicked');
+                const country1 = document.getElementById('country1').value;
+                const country2 = document.getElementById('country2').value;
+                console.log('Selected countries:', country1, country2);
+                
+                // Update comparison table with selected countries
+                const table = document.getElementById('comparisonTable');
+                if (table) {
+                    let html = `
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Criteria</th>
+                                    <th>${country1}</th>
+                                    <th>${country2}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Visa Type</td>
+                                    <td>${studyDestinations[country1].visa}</td>
+                                    <td>${studyDestinations[country2].visa}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tuition Fees (per year)</td>
+                                    <td>${studyDestinations[country1].tuition.min.toLocaleString()} - ${studyDestinations[country1].tuition.max.toLocaleString()} ${studyDestinations[country1].tuition.currency}</td>
+                                    <td>${studyDestinations[country2].tuition.min.toLocaleString()} - ${studyDestinations[country2].tuition.max.toLocaleString()} ${studyDestinations[country2].tuition.currency}</td>
+                                </tr>
+                                <tr>
+                                    <td>Living Cost (per month)</td>
+                                    <td>${studyDestinations[country1].livingCost.min.toLocaleString()} - ${studyDestinations[country1].livingCost.max.toLocaleString()} ${studyDestinations[country1].livingCost.currency}</td>
+                                    <td>${studyDestinations[country2].livingCost.min.toLocaleString()} - ${studyDestinations[country2].livingCost.max.toLocaleString()} ${studyDestinations[country2].livingCost.currency}</td>
+                                </tr>
+                                <tr>
+                                    <td>Part-time Work</td>
+                                    <td>${studyDestinations[country1].partTime}</td>
+                                    <td>${studyDestinations[country2].partTime}</td>
+                                </tr>
+                                <tr>
+                                    <td>Requirements</td>
+                                    <td><ul>${studyDestinations[country1].requirements.map(req => `<li>${req}</li>`).join('')}</ul></td>
+                                    <td><ul>${studyDestinations[country2].requirements.map(req => `<li>${req}</li>`).join('')}</ul></td>
+                                </tr>
+                                <tr>
+                                    <td>Benefits</td>
+                                    <td><ul>${studyDestinations[country1].benefits.map(benefit => `<li>${benefit}</li>`).join('')}</ul></td>
+                                    <td><ul>${studyDestinations[country2].benefits.map(benefit => `<li>${benefit}</li>`).join('')}</ul></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `;
+                    table.innerHTML = html;
+                    console.log('Comparison table updated with selected countries');
+                } else {
+                    console.error('Comparison table element not found');
+                }
+            });
+        } else {
+            console.error('Show comparison button not found');
+        }
+    });
+</script>
+
+<style>
+    /* Add styles for the modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 800px;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .compare-form {
+        display: flex;
+        gap: 20px;
+        margin: 20px 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .country-select {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        min-width: 200px;
+    }
+
+    .compare-btn {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .compare-btn:hover {
+        background-color: #45a049;
+    }
+
+    /* Update table styles */
+    .comparison-table table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .comparison-table th, 
+    .comparison-table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .comparison-table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .comparison-table tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .comparison-table ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .comparison-table li {
+        margin-bottom: 5px;
+        padding-left: 20px;
+        position: relative;
+    }
+
+    .comparison-table li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #4CAF50;
+    }
+</style>
+
+<script>
+function openChat() {
+  document.getElementById('chatModal').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+  }, 100);
+}
+function closeChat() {
+  document.getElementById('chatModal').style.display = 'none';
+}
+
+function sendQuickFAQ(question) {
+  document.getElementById('chat-input').value = question;
+  sendMessage();
+}
+
+function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const message = input.value.trim();
+  if (!message) return;
+  const chatBox = document.getElementById('chat-box');
+  // User message
+  chatBox.innerHTML += `<p class="user-message">${message}</p>`;
+  input.value = '';
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  // Typing indicator
+  const typingId = 'typing-indicator';
+  chatBox.innerHTML += `<div id="${typingId}" class="typing-indicator">Bot is typing...</div>`;
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  // Try API first, fallback to local FAQ
+  fetch('http://localhost:5000/api/hybrid-chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById(typingId).remove();
+    chatBox.innerHTML += `<p class="support-message">${data.reply}</p>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  })
+  .catch(() => {
+    document.getElementById(typingId).remove();
+    // Use local FAQ when API fails
+    const localAnswer = getLocalFAQAnswer(message);
+    chatBox.innerHTML += `<p class="support-message">${localAnswer}</p>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  });
+}
+
+// Enter key support
+document.getElementById('chat-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') sendMessage();
+});
+</script>
+
+<script>
+async function performSearch() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const resultsDiv = document.getElementById('searchResults');
+    
+    // Show loading state
+    resultsDiv.innerHTML = '<div class="loading">Searching...</div>';
+    
+    try {
+        // Try to fetch from API first
+        const response = await fetch('http://localhost:5000/api/search', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query: searchTerm })
+        });
+        
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+        
+        const data = await response.json();
+        
+        // Display results
+        if (data.universities && data.universities.length > 0) {
+            let html = '<div class="search-results-container">';
+            html += '<h3>Universities</h3>';
+            
+            data.universities.forEach(uni => {
+                html += `
+                    <div class="result-card">
+                        <h4>${uni.name}</h4>
+                        <p><strong>Country:</strong> ${uni.country}</p>
+                        <p><strong>Ranking:</strong> #${uni.ranking}</p>
+                        <p><strong>Programs:</strong> ${Array.isArray(uni.programs) ? uni.programs.join(', ') : uni.programs}</p>
+                        <p><strong>Minimum GPA:</strong> ${uni.minGPA ? uni.minGPA : 'N/A'}</p>
+                        <p><strong>Scholarships:</strong> ${uni.scholarships ? (Array.isArray(uni.scholarships) ? uni.scholarships.join(', ') : uni.scholarships) : 'N/A'}</p>
+                        <a href="${uni.website}" target="_blank" class="apply-btn">Visit Website</a>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            resultsDiv.innerHTML = html;
+        } else {
+            // If no API results, use fallback data
+            const fallbackResults = fallbackUniversities.filter(uni => 
+                uni.name.toLowerCase().includes(searchTerm) ||
+                uni.country.toLowerCase().includes(searchTerm) ||
+                uni.programs.some(prog => prog.toLowerCase().includes(searchTerm))
+            );
+            
+            if (fallbackResults.length > 0) {
+                let html = '<div class="search-results-container">';
+                html += '<h3>Universities</h3>';
+                
+                fallbackResults.forEach(uni => {
+                    html += `
+                        <div class="result-card">
+                            <h4>${uni.name}</h4>
+                            <p><strong>Country:</strong> ${uni.country}</p>
+                            <p><strong>Ranking:</strong> #${uni.ranking}</p>
+                            <p><strong>Programs:</strong> ${Array.isArray(uni.programs) ? uni.programs.join(', ') : uni.programs}</p>
+                            <p><strong>Minimum GPA:</strong> ${uni.minGPA ? uni.minGPA : 'N/A'}</p>
+                            <p><strong>Scholarships:</strong> ${uni.scholarships ? (Array.isArray(uni.scholarships) ? uni.scholarships.join(', ') : uni.scholarships) : 'N/A'}</p>
+                            <a href="${uni.website}" target="_blank" class="apply-btn">Visit Website</a>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                resultsDiv.innerHTML = html;
+            } else {
+                resultsDiv.innerHTML = '<p class="no-results">No universities found matching your search.</p>';
+            }
+        }
+    } catch (error) {
+        console.error('Search error:', error);
+        // Use fallback data when API fails
+        const fallbackResults = fallbackUniversities.filter(uni => 
+            uni.name.toLowerCase().includes(searchTerm) ||
+            uni.country.toLowerCase().includes(searchTerm) ||
+            uni.programs.some(prog => prog.toLowerCase().includes(searchTerm))
+        );
+        
+        if (fallbackResults.length > 0) {
+            let html = '<div class="search-results-container">';
+            html += '<h3>Universities</h3>';
+            
+            fallbackResults.forEach(uni => {
+                html += `
+                    <div class="result-card">
+                        <h4>${uni.name}</h4>
+                        <p><strong>Country:</strong> ${uni.country}</p>
+                        <p><strong>Ranking:</strong> #${uni.ranking}</p>
+                        <p><strong>Programs:</strong> ${Array.isArray(uni.programs) ? uni.programs.join(', ') : uni.programs}</p>
+                        <p><strong>Minimum GPA:</strong> ${uni.minGPA ? uni.minGPA : 'N/A'}</p>
+                        <p><strong>Scholarships:</strong> ${uni.scholarships ? (Array.isArray(uni.scholarships) ? uni.scholarships.join(', ') : uni.scholarships) : 'N/A'}</p>
+                        <a href="${uni.website}" target="_blank" class="apply-btn">Visit Website</a>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            resultsDiv.innerHTML = html;
+        } else {
+            resultsDiv.innerHTML = '<p class="no-results">No universities found matching your search.</p>';
+        }
+    }
+}
+
+// Add event listener for search input
+document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        performSearch();
+    }
+});
+</script>
+</body>
+</html>

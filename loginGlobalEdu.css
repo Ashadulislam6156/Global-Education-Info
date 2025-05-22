@@ -1,0 +1,293 @@
+/* Google font setup */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f3f6fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150vh;
+  }
+  .signUp-body{
+    height: 200vh;
+  }
+  .signup-container{
+    width: 130vh;
+  }
+  
+  /* Main container */
+  .login-container,
+  .signup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100vh;
+  }
+  
+  /* Login box styling */
+  .login-box,
+  .signup-box {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Logo section */
+  .logo img {
+    width: 140px;
+    margin-bottom: 20px;
+  }
+  
+  /* Title and description */
+  .login-box h2,
+  .signup-box h2
+  {
+    margin: 10px 0 5px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  
+  .login-box p,
+  .signup-box p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="confirm-password"]{
+    padding: 12px 14px;
+    border: 2px solid #154734;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    width: 93%;
+    background-color: #e8ecea;
+  }
+  
+  /* Password wrapper for eye icon */
+  .password-wrapper {
+    position: relative;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 37%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .toggle-password img{
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Options row (remember me + forgot password) */
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+  
+  .options a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  .options a:hover{
+    text-decoration: underline;
+  }
+
+  .options .remember-btn input,
+  .options #terms{
+    outline: 1px solid #154734;
+    
+
+  }
+  
+  /* Login button */
+  .login-btn,
+  .signup-btn {
+    background-color: #154734;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .login-btn:hover,
+  .signup-btn:hover {
+    background-color: #118be7;
+  }
+  
+  /* Divider line */
+  .divider {
+    margin: 25px 0;
+    text-align: center;
+    position: relative;
+    font-size: 13px;
+    color: #154734;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #ddd;
+  }
+  
+  .divider::before {
+    left: 0;
+  }
+  
+  .divider::after {
+    right: 0;
+  }
+  
+  /* Google button */
+  .google-btn {
+    border: 1px solid #ccc;
+    background: #e8ecea;
+    color: #333;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .google-btn:hover {
+    background: #056641e3;
+    color: white;
+  }
+  
+  /* Sign up text */
+  .signup-text {
+    font-size: 13px;
+    margin-top: 20px;
+    color: #555;
+  }
+  
+  .signup-text a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .signup-text a:hover{
+    text-decoration: underline;
+  }
+
+  
+  @media (max-width: 768px) {
+    .login-box {
+      padding: 30px 20px;
+      max-width: 90%;
+    }
+  
+    .login-box h2 {
+      font-size: 20px;
+    }
+  
+    .login-btn,
+    .google-btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .divider::before,
+    .divider::after {
+      width: 35%;
+    }
+
+    body{
+        height: 100vh;
+    }
+    .login-container {
+        width: 50vh;
+      }
+  }
+  
+  @media (max-width: 480px) {
+
+    body{
+        height: 100vh;
+    }
+
+    .signUp-body{
+      height: 120vh;
+    }
+    .login-container {
+        width: 50vh;
+      }
+    .login-box {
+      padding: 25px 15px;
+      max-width: 95%;
+    }
+  
+    .login-box h2 {
+      font-size: 18px;
+    }
+  
+    .login-box p,
+    .signup-text {
+      font-size: 13px;
+    }
+  
+    input[type="email"],
+    input[type="password"] {
+      font-size: 13px;
+      padding: 10px;
+    }
+  
+    .login-btn,
+    .google-btn {
+      padding: 10px;
+      font-size: 13px;
+    }
+  
+    .divider {
+      font-size: 12px;
+    }
+  
+    .options {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .toggle-password{
+        right: 15px;
+       
+    }
+  }
+
+
+
+  

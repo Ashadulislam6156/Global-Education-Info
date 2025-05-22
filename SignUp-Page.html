@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Global Education Info</title>
+  <link rel="shortcut icon" href="./Images/GEI-Fav.png" type="image/x-icon">
+  <link rel="stylesheet" href="./loginGlobalEdu.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+<body class="signUp-body">
+  <div class="signup-container">
+    <div class="signup-box">
+      <div class="logo">
+        <img src="./Images/Website-logo.png" />
+      </div>
+      <h2>Create Your Account</h2>
+      <p>Please fill in the information below.</p>
+
+      <form id="signupForm">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="Enter Your full name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="globaleducationinfo@gmail.com" required />
+
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Enter new password" required />
+          <span class="toggle-password"><img src="./Images/view.png" alt=""></span>
+        </div>
+
+        <label for="confirm-password">Confirm Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirm-password" placeholder="Enter confirm password" required />
+          <span class="toggle-password"><img src="./Images/view.png" alt=""></span>
+        </div>
+        
+        <label for="captcha">Enter CAPTCHA: <strong id="captchaText">1234</strong></label>
+        <input type="text" id="captcha" placeholder="Type the text shown above" required />
+
+        <div class="options">
+          <input type="checkbox" id="terms" />
+          <label for="terms">I agree to the Terms & Conditions</label>
+        </div>
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+
+        <div class="divider">OR</div>
+
+        <button type="button" class="google-btn">Sign up with Google</button>
+
+        <p class="login-text">Already have an account? <a href="./User-logIn-page.html">Log In</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Generate random CAPTCHA
+    function generateCaptcha() {
+      const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let captcha = "";
+      for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("captchaText").textContent = captcha;
+      return captcha;
+    }
+
+    // Initialize
+    document.addEventListener("DOMContentLoaded", () => {
+      let currentCaptcha = generateCaptcha();
+      const form = document.getElementById("signupForm");
+
+      // Password toggle functionality
+      document.querySelectorAll('.toggle-password').forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          const input = toggle.previousElementSibling;
+          const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+          input.setAttribute('type', type);
+          toggle.innerHTML = type === 'password' 
+            ? '<img src="./Images/view.png" alt="Show">' 
+            : '<img src="./Images/hide.png" alt="Hide">';
+        });
+      });
+
+      // Form submission
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const fullName = document.getElementById("fullname").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
+        const captcha = document.getElementById("captcha").value.trim();
+        const termsAccepted = document.getElementById("terms").checked;
+
+        // Validation
+        if (password !== confirmPassword) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        if (captcha !== currentCaptcha) {
+          alert("CAPTCHA verification failed!");
+          currentCaptcha = generateCaptcha();
+          return;
+        }
+
+        if (!termsAccepted) {
+          alert("You must accept the Terms & Conditions");
+          return;
+        }
+
+        // Store user data
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        
+        if (users.some(user => user.email === email)) {
+          alert("Email already registered!");
+          return;
+        }
+
+        const newUser = {
+          id: Date.now().toString(),
+          name: fullName,
+          email: email,
+          password: password, // Note: In production, hash this password
+          createdAt: new Date().toISOString()
+        };
+
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        alert("Registration successful! Please login.");
+        window.location.href = "./User-logIn-page.html";
+      });
+
+      // Google signup placeholder
+      document.querySelector(".google-btn").addEventListener("click", () => {
+        alert("Google signup would be implemented here");
+      });
+    });
+  </script>
+</body>
+</html>

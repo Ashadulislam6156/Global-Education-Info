@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Scholarships</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="shortcut icon" href="./Images/GEI-Fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Style.css">
+
+    <style>
+        /* Base Styles */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #4f46e5;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #94a3b8;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: #f1f5f9;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 4rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInDown 1s ease;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    animation: fadeIn 1.5s ease;
+}
+
+.header-image {
+    position: absolute;
+    bottom: -50px;
+    right: 50px;
+    width: 400px;
+    opacity: 0.2;
+    z-index: 1;
+    animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .header-image {
+        display: none;
+    }
+}
+
+/* Search Section */
+.search-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    margin-top: -3rem;
+    position: relative;
+    z-index: 10;
+    animation: slideUp 0.8s ease;
+}
+
+.search-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box input, .search-box select {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+}
+
+.search-box input:focus, .search-box select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    background-color: white;
+}
+
+.search-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.search-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Filter Chips */
+.filter-section {
+    margin: 2rem 0;
+}
+
+.filter-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.chip {
+    padding: 0.5rem 1.25rem;
+    background-color: #e2e8f0;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.chip:hover {
+    background-color: #cbd5e1;
+}
+
+.chip.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Scholarship Cards */
+.scholarships-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.scholarship-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+
+.scholarship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.scholarship-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.university-logo {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.university-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.5rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.university-name {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.scholarship-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.scholarship-details {
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.detail-item i {
+    margin-right: 0.75rem;
+    color: var(--primary);
+    width: 20px;
+    text-align: center;
+}
+
+.amount {
+    font-weight: 700;
+    color: var(--success);
+}
+
+.deadline {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.view-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+    gap: 0.5rem;
+}
+
+.page-btn {
+    padding: 0.75rem 1rem;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+}
+
+.page-btn:hover {
+    background-color: #f1f5f9;
+}
+
+.page-btn.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    position: relative;
+    height: 200px;
+}
+
+.modal-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-logo {
+    position: absolute;
+    bottom: -30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.5rem;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-title {
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.modal-university {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.detail-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.detail-value {
+    font-weight: 600;
+}
+
+.detail-value.amount {
+    color: var(--success);
+}
+
+.detail-value.deadline {
+    color: var(--danger);
+}
+
+.modal-description {
+    margin-bottom: 2rem;
+}
+
+.close-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .header-content p {
+        font-size: 1rem;
+    }
+    
+    .search-section {
+        margin-top: -5rem;
+    }
+    
+    .scholarships-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 3rem 0 5rem;
+    }
+    
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .search-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-btn {
+        width: 100%;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+    }
+    
+    .modal-overlay {
+        padding: 1rem;
+    }
+}
+
+#Sc-header{
+    font-size: 30px;
+    font-weight: 700;
+    padding-top: 100px;
+}
+
+    </style>
+</head>
+
+
+<!--------------------- start body ----------------->
+
+<body>
+
+
+<div class="navbar">
+        <!-- Logo -->
+        <img src="./Images/Website-log.png" alt="Logo">
+    
+        <!-- Hamburger Icon for Mobile -->
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+    
+        <!-- Navigation Links -->
+        <div class="nav-right" id="nav-links">
+            <nav>
+                <a href="./index.html" target="_blank">Home</a>
+                <a href="./Universities-Page.html" target="_blank">Universities</a>
+                <a href="./Scholarships-Page.html" class="Active-page" target="_blank">Scholarships</a>
+                <a href="About-Us.html" target="_blank">About Us</a>
+                <a href="./Sub-Prgramme-Page.html" target="_blank">Subjects</a>
+                <a href="./Contact-page.html" target="_blank">Contact Us</a>
+                <div class="nav-button">
+                    <button src="#" target="_blank">Log In</button>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- Header Section -->
+    <header>
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Graduation" class="header-image">
+        <div class="container header-content">
+            <h1 id="Sc-header">Global Scholarship Opportunities</h1>
+            <p>Discover thousands of scholarships from top universities worldwide to fund your academic journey</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search scholarships...">
+                </div>
+                <div class="search-box">
+                    <select id="countryFilter">
+                        <option value="">All Countries</option>
+                        <option value="usa">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="canada">Canada</option>
+                        <option value="australia">Australia</option>
+                        <option value="germany">Germany</option>
+                        <option value="france">France</option>
+                        <option value="japan">Japan</option>
+                        <option value="singapore">Singapore</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <select id="levelFilter">
+                        <option value="">All Study Levels</option>
+                        <option value="undergraduate">Undergraduate</option>
+                        <option value="masters">Master's</option>
+                        <option value="phd">PhD</option>
+                    </select>
+                </div>
+                <button class="search-btn" id="searchButton">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <h3 class="filter-title">Filter by Scholarship Type:</h3>
+            <div class="filter-chips" id="filterChips">
+                <button class="chip active" data-type="all">All</button>
+                <button class="chip" data-type="merit">Merit-based</button>
+                <button class="chip" data-type="need">Need-based</button>
+                <button class="chip" data-type="athletic">Athletic</button>
+                <button class="chip" data-type="research">Research</button>
+                <button class="chip" data-type="government">Government</button>
+            </div>
+        </section>
+
+        <!-- Scholarships Grid -->
+        <div class="scholarships-container" id="scholarshipsContainer">
+            <!-- Scholarship Card 1 -->
+            <div class="scholarship-card" style="--delay: 0">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Harvard University">
+                     <div class="university-logo">
+                         <img src="./Images/Harvard_University_logo.svg.png" alt="Harvard University logo">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="university-name">Harvard University</p>
+                    <h3 class="scholarship-title">Harvard University Scholarship</h3>
+                    <div class="scholarship-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span class="amount">$50,000 per year</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Deadline: <span class="deadline">December 1, 2025</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Level: Undergraduate</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Country: USA</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" onclick="showModal('Harvard University', 'Harvard Presidential Scholarship', 'https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 'https://upload.wikimedia.org/wikipedia/en/thumb/2/29/Harvard_shield_wreath.svg/1200px-Harvard_shield_wreath.svg.png', '$50,000 per year', 'December 1, 2023', 'Undergraduate', 'USA', 'The Harvard Presidential Scholarship is awarded to exceptional students demonstrating outstanding academic achievement and leadership potential. This prestigious scholarship covers tuition, room, and board for four years of undergraduate study at Harvard College. Recipients are selected based on academic excellence, extracurricular achievements, and personal qualities. The scholarship also includes access to exclusive networking opportunities and mentorship programs with Harvard alumni and faculty.')">
+                        <i class="fas fa-info-circle"></i> View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scholarship Card 2 -->
+            <div class="scholarship-card" style="--delay: 1">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="University of Oxford">
+                    <div class="university-logo">
+                        <img src="./Images/university-of-oxford-logo-1.webp" alt="University of Oxford logo">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="university-name">University of Oxford</p>
+                    <h3 class="scholarship-title">Rhodes Scholarship</h3>
+                    <div class="scholarship-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span class="amount">Full tuition + £15,000 stipend</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Deadline: <span class="deadline">October 15, 2025</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Level: Graduate</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Country: UK</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" onclick="showModal('University of Oxford', 'Rhodes Scholarship', 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/University_of_Oxford.svg/1200px-University_of_Oxford.svg.png', 'Full tuition + £15,000 stipend', 'October 15, 2023', 'Graduate', 'UK', 'The Rhodes Scholarship is one of the oldest and most prestigious international scholarship programs. It covers all university and college fees, a personal stipend, health insurance, and economy class airfare to Oxford at the start and end of the scholarship. Selection criteria include academic excellence, energy to use talents to the full, truth, courage, devotion to duty, and moral force of character. Rhodes Scholars become part of a lifelong community of leaders who are committed to making a positive difference in the world.')">
+                        <i class="fas fa-info-circle"></i> View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scholarship Card 3 -->
+            <div class="scholarship-card" style="--delay: 2">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="ETH Zurich">
+                    <div class="university-logo">
+                        <img src="./Images/ETH_Zürich_Logo_black.svg.png" alt="ETH Zurich logo">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="university-name">ETH Zurich</p>
+                    <h3 class="scholarship-title">Excellence Scholarship</h3>
+                    <div class="scholarship-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span class="amount">CHF 11,000 per semester</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Deadline: <span class="deadline">June 15, 2025</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Level: Master's</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Country: Switzerland</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" onclick="showModal('ETH Zurich', 'Excellence Scholarship', 'https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/ETH_Z%C3%BCrich_Logo_black.svg/1280px-ETH_Z%C3%BCrich_Logo_black.svg.png', 'CHF 11,000 per semester', 'December 15, 2023', 'Master\'s', 'Switzerland', 'The ETH Zurich Excellence Scholarship offers excellent students the opportunity to pursue their Master\'s degree at one of the world\'s leading universities for science and technology. The scholarship consists of a grant covering living and study expenses (CHF 11,000 per semester) as well as a tuition fee waiver. Candidates must have very good results in their Bachelor\'s degree (top 10% of their Bachelor\'s program) and meet the Master\'s program requirements. The scholarship is awarded for the regular duration of the Master\'s program (three or four semesters).')">
+                        <i class="fas fa-info-circle"></i> View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scholarship Card 4 -->
+            <div class="scholarship-card" style="--delay: 3">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="University of Toronto">
+                    <div class="university-logo">
+                        <img src="./Images/toronto.jpeg" alt="University of Toronto logo">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="university-name">University of Toronto</p>
+                    <h3 class="scholarship-title">Lester B. Pearson Scholarship</h3>
+                    <div class="scholarship-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span class="amount">Full tuition + living expenses</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Deadline: <span class="deadline">August 15, 2025</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Level: Undergraduate</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Country: Canada</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" onclick="showModal('University of Toronto', 'Lester B. Pearson Scholarship', 'https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/University_of_Toronto_coat_of_arms.svg/1200px-University_of_Toronto_coat_of_arms.svg.png', 'Full tuition + living expenses', 'January 15, 2024', 'Undergraduate', 'Canada', 'The Lester B. Pearson International Scholarship at the University of Toronto is awarded to exceptional international students who demonstrate outstanding academic achievement and creativity. The scholarship covers tuition, books, incidental fees, and full residence support for four years. Named after former Canadian Prime Minister Lester B. Pearson, this scholarship recognizes students who show exceptional academic achievement, creativity, and leadership within their school and community. Recipients are students who have demonstrated a high level of academic achievement, creativity, and leadership.')">
+                        <i class="fas fa-info-circle"></i> View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scholarship Card 5 -->
+            <div class="scholarship-card" style="--delay: 4">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Australian National University">
+                    <div class="university-logo">
+                        <img src="./Images/australian-national-university.jpg" alt="Australian National University logo">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="university-name">Australian National University</p>
+                    <h3 class="scholarship-title">ANU Chancellor's Scholarship</h3>
+                    <div class="scholarship-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span class="amount">25%-50% tuition fee waiver</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Deadline: <span class="deadline">May 15, 2025</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Level: Undergraduate, Master's</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Country: Australia</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" onclick="showModal('Australian National University', 'ANU Chancellor\'s Scholarship', 'https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Australian_National_University_logo.svg/1200px-Australian_National_University_logo.svg.png', '25%-50% tuition fee waiver', 'April 15, 2024', 'Undergraduate, Master\'s', 'Australia', 'The ANU Chancellor\'s International Scholarship offers a 25% or 50% tuition fee waiver for the duration of the recipient\'s program. This scholarship is available for both undergraduate and postgraduate coursework students who have demonstrated academic excellence in their previous studies. The scholarship aims to attract high-caliber international students to study at Australia\'s national university. Recipients are selected based on academic merit, with applicants needing to have achieved excellent results in their previous studies. The scholarship is highly competitive and awarded to students who show exceptional academic potential.')">
+                        <i class="fas fa-info-circle"></i> View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scholarship Card 6 -->
+            <div class="scholarship-card" style="--delay: 5">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1561501878-aabd62634533?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="National University of Singapore">
+                    <div class="university-logo">
+                        <img src="./Images/NUS_logo_full-vertical.jpg" alt="National University of Singapore logo">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="university-name">National University of Singapore</p>
+                    <h3 class="scholarship-title">NUS Global Merit Scholarship</h3>
+                    <div class="scholarship-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span class="amount">Full tuition + living allowance</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Deadline: <span class="deadline">November 31, 2025</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Level: Undergraduate</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Country: Singapore</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" onclick="showModal('National University of Singapore', 'NUS Global Merit Scholarship', 'https://images.unsplash.com/photo-1561501878-aabd62634533?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/NUS_coat_of_arms.svg/1200px-NUS_coat_of_arms.svg.png', 'Full tuition + living allowance', 'March 31, 2024', 'Undergraduate', 'Singapore', 'The NUS Global Merit Scholarship is awarded to academically outstanding international students applying for undergraduate programmes. The scholarship covers tuition fees (after MOE Tuition Grant subsidy) and provides a living allowance of S$5,800 per academic year. It also includes accommodation allowance for up to 2 years of study. Recipients must maintain a minimum CAP of 3.5/5.0 to continue receiving the scholarship. The scholarship is bond-free and open to all nationalities except Singapore citizens and permanent residents. Selection is based on outstanding academic achievements, leadership potential, and co-curricular activities.')">
+                        <i class="fas fa-info-circle"></i> View Details
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </main>
+
+
+<footer class="footer">
+        <div class="footer-container">
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-of-service.html">Terms of Service</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Email: globaleducationinfo6156@gmail.com</p>
+            <p>Phone: +1 234 567 890</p>
+            <p>Address: 1230 Uttara, Dhaka, Bangladesh</p>
+          </div>
+      
+          <div class="footer-social">
+            <h3>Follow Us</h3>
+            <a href="https://www.facebook.com" target="_blank"><img src="./Images/facebook-brands (1).svg" alt="Facebook" /></a>
+            <a href="https://www.linkedin.com" target="_blank"><img src="./Images/linkedin-brands.svg" alt="LinkedIn" /></a>
+            <a href="https://www.youtube.com" target="_blank"><img src="./Images/youtube-brands.svg" alt="YouTube" class="youtub"/></a>
+            <a href="https://www.telegram.com" target="_blank"><img src="./Images/telegram-brands.svg" alt="Telegram" /></a>
+          </div>
+        </div>
+      
+        <div class="footer-bottom">
+          <p>&copy; 2025 Global Education Info. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+
+    <script>
+        // Modal display function
+function showModal(university, title, image, logo, amount, deadline, level, country, description) {
+    const modal = document.createElement('div');
+    modal.className = 'modal-overlay';
+    
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="${image}" alt="${university}">
+                <div class="modal-logo">
+                    <img src="${logo}" alt="${university} logo">
+                </div>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title">${title}</h2>
+                <p class="modal-university">${university}</p>
+                
+                <div class="details-grid">
+                    <div>
+                        <h4 class="detail-label">Amount</h4>
+                        <p class="detail-value amount">${amount}</p>
+                    </div>
+                    <div>
+                        <h4 class="detail-label">Deadline</h4>
+                        <p class="detail-value deadline">${deadline}</p>
+                    </div>
+                    <div>
+                        <h4 class="detail-label">Study Level</h4>
+                        <p class="detail-value">${level}</p>
+                    </div>
+                    <div>
+                        <h4 class="detail-label">Country</h4>
+                        <p class="detail-value">${country}</p>
+                    </div>
+                </div>
+                
+                <h4 class="detail-label">Description</h4>
+                <p class="modal-description">${description}</p>
+                
+                <button class="close-btn" onclick="this.closest('.modal-overlay').remove()">
+                    Close
+                </button>
+            </div>
+        </div>
+    `;
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            document.body.removeChild(modal);
+        }
+    });
+    
+    document.body.appendChild(modal);
+}
+
+// Filter functionality
+document.getElementById('filterChips').addEventListener('click', function(e) {
+    if (e.target.classList.contains('chip')) {
+        document.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+    }
+});
+
+// Search functionality
+document.getElementById('searchButton').addEventListener('click', function() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const country = document.getElementById('countryFilter').value;
+    const level = document.getElementById('levelFilter').value;
+    const type = document.querySelector('.chip.active').getAttribute('data-type');
+    
+    const cards = document.querySelectorAll('.scholarship-card');
+    
+    cards.forEach(card => {
+        const university = card.querySelector('.university-name').textContent.toLowerCase();
+        const title = card.querySelector('.scholarship-title').textContent.toLowerCase();
+        const cardCountry = card.querySelector('.detail-item:nth-child(4) span:last-child').textContent.toLowerCase();
+        const cardLevel = card.querySelector('.detail-item:nth-child(3) span:last-child').textContent.toLowerCase();
+        
+        const matchesSearch = searchTerm === '' || 
+            university.includes(searchTerm) || 
+            title.includes(searchTerm);
+        
+        const matchesCountry = country === '' || cardCountry === country.toLowerCase();
+        const matchesLevel = level === '' || cardLevel.includes(level.toLowerCase());
+        
+        if (matchesSearch && matchesCountry && matchesLevel) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
+    </script>
+
+
+    <script src="./Style-JavaScript.js"></script>
+</body>
+</html>
+

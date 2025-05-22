@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Global Education Info</title>
+  <link rel="shortcut icon" href="./Images/GEI-Fav.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./loginGlobalEdu.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="logo">
+        <img src="./Images/Website-logo.png" alt="Global Education Info Logo" />
+      </div>
+      <h2>Log in to your Account</h2>
+      <p>Welcome back, please enter your details.</p>
+
+      <form id="loginForm">
+        <label>Email Address</label>
+        <input type="email" id="loginEmail" placeholder="globaleducationinfo@gmail.com" required />
+
+        <label>Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="loginPassword" placeholder="Enter password" required />
+          <span class="toggle-password"><img src="./Images/view.png" alt="Toggle Password"></span>
+        </div>
+
+        <div class="options">
+          <label class="remember-btn"><input type="checkbox" id="rememberMe" /> Remember me</label>
+          <a href="#" id="forgotPassword">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-btn">Log in</button>
+      </form>
+
+      <div id="error-message" class="error-message"></div>
+
+      <div class="divider">OR</div>
+
+      <button class="google-btn">Continue with Google</button>
+
+      <p class="signup-text">
+        Don't have an account? <a href="./SignUp-Page.html">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginForm = document.getElementById("loginForm");
+      const emailInput = document.getElementById("loginEmail");
+      const passwordInput = document.getElementById("loginPassword");
+      const rememberMe = document.getElementById("rememberMe");
+      const errorMessage = document.getElementById("error-message");
+      const togglePassword = document.querySelector(".toggle-password");
+      const forgotPasswordLink = document.getElementById("forgotPassword");
+
+      // Load remembered credentials
+      if (localStorage.getItem("rememberedEmail")) {
+        emailInput.value = localStorage.getItem("rememberedEmail");
+        rememberMe.checked = true;
+      }
+
+      // Toggle password visibility
+      togglePassword.addEventListener("click", () => {
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        passwordInput.setAttribute("type", type);
+        togglePassword.innerHTML = type === "password" 
+          ? '<img src="./Images/view.png" alt="Show Password">' 
+          : '<img src="./Images/hide.png" alt="Hide Password">';
+      });
+
+      // Handle login
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        errorMessage.textContent = "";
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Find user
+        const user = users.find(u => u.email === email && u.password === password);
+
+        if (user) {
+          // Remember credentials if checked
+          if (rememberMe.checked) {
+            localStorage.setItem("rememberedEmail", email);
+          } else {
+            localStorage.removeItem("rememberedEmail");
+          }
+
+          // Create session
+          sessionStorage.setItem("currentUser", JSON.stringify(user));
+          
+          // Redirect to dashboard
+          window.location.href = "./student-dashboard.html";
+        } else {
+          errorMessage.textContent = "Invalid email or password!";
+        }
+      });
+
+      // Forgot password
+      forgotPasswordLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const email = prompt("Please enter your email address:");
+        if (email) {
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          if (users.some(u => u.email === email)) {
+            alert("Password reset link would be sent to your email if this was a real system");
+          } else {
+            alert("Email not found in our system");
+          }
+        }
+      });
+
+      // Google login placeholder
+      document.querySelector(".google-btn").addEventListener("click", () => {
+        alert("Google login would be implemented here");
+      });
+    });
+  </script>
+</body>
+</html>

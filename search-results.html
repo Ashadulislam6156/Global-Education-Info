@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f9f9f9; }
+        .result { background: #fff; margin-bottom: 15px; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .result h3 { margin: 0; }
+    </style>
+</head>
+<body>
+
+    <h1>Search Results</h1>
+    <div id="results"></div>
+
+    <script>
+        // Fake "backend" university data
+        const universities = [
+            { name: "Harvard University", location: "USA", link: "#" },
+            { name: "University of Oxford", location: "UK", link: "#" },
+            { name: "Massachusetts Institute of Technology (MIT)", location: "USA", link: "#" },
+            { name: "University of Toronto", location: "Canada", link: "#" },
+            { name: "University of Tokyo", location: "Japan", link: "#" },
+            { name: "National University of Singapore", location: "Singapore", link: "#" }
+        ];
+
+        // Get search query from localStorage
+        const query = localStorage.getItem("searchQuery")?.toLowerCase();
+        const resultContainer = document.getElementById("results");
+
+        if (!query) {
+            resultContainer.innerHTML = "<p>No search query provided.</p>";
+        } else {
+            // Filter universities that match the query
+            const matches = universities.filter(uni =>
+                uni.name.toLowerCase().includes(query) ||
+                uni.location.toLowerCase().includes(query)
+            );
+
+            if (matches.length === 0) {
+                resultContainer.innerHTML = `<p>No universities found for "<strong>${query}</strong>".</p>`;
+            } else {
+                matches.forEach(uni => {
+                    const uniElement = document.createElement("div");
+                    uniElement.className = "result";
+                    uniElement.innerHTML = `
+                        <h3>${uni.name}</h3>
+                        <p>Location: ${uni.location}</p>
+                        <a href="${uni.link}">View More</a>
+                    `;
+                    resultContainer.appendChild(uniElement);
+                });
+            }
+        }
+    </script>
+
+    <!-- API connection -->
+
+  <script>
+    async function loadUniversities() {
+    try {
+        const response = await fetch('http://localhost:5000/api/universities');
+        const universities = await response.json();
+        
+        const universitiesContainer = document.getElementById('universities-container');
+        universitiesContainer.innerHTML = '';
+        
+        universities.forEach(university => {
+            const universityCard = `
+                <div class="university-card">
+                    <img src="${university.image_url}" alt="${university.name}">
+                    <h3>${university.name}</h3>
+                    <p>${university.country}</p>
+                    <p>Ranking: ${university.ranking}</p>
+                    <p>${university.description}</p>
+                    <a href="${university.website}" target="_blank">Visit Website</a>
+                </div>
+            `;
+            universitiesContainer.innerHTML += universityCard;
+        });
+    } catch (error) {
+        console.error('Error loading universities:', error);
+    }
+}
+</script>
+
+</body>
+</html>
